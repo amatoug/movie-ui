@@ -6,15 +6,13 @@ function App() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!query.trim()) {
-      setError('Please enter a movie name');
+      setError('Please enter a movie title before searching.');
       return;
     }
-
     setError('');
-    // Pas de backend : on pourrait logguer ou simplement ne rien faire
-    // alert(`Recherche pour : ${query}`);
+    // No backend, so just alert or do nothing
+    alert(`Searching for: ${query}`);
   };
 
   return (
@@ -24,22 +22,16 @@ function App() {
         <input
           type="text"
           value={query}
-          onChange={e => {
-            setQuery(e.target.value);
-            if (error) {
-              setError('');
-            }
-          }}
+          onChange={e => { setQuery(e.target.value); setError(''); }}
           placeholder="Enter movie title"
           style={{ padding: 8, width: '70%', marginRight: 8 }}
         />
         <button type="submit" style={{ padding: '8px 16px' }}>Search</button>
       </form>
-      {error && (
-        <p style={{ color: 'red', marginTop: 8 }}>{error}</p>
-      )}
+      {error && <p style={{ color: 'red', marginTop: 8 }}>{error}</p>}
     </div>
   );
 }
 
 export default App;
+
