@@ -7,7 +7,7 @@ function App() {
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
         if (!query.trim()) {
-            setError('Please enter a movie title before searching.');
+            setError('Please enter a movie name');
             return;
         }
         setError('');
@@ -34,4 +34,3 @@ function App() {
 }
 
 export default App;
-
